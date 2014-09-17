@@ -41,16 +41,44 @@ var _ = { };
 
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
-  _.each = function(collection, iterator) {
-  };
+//   _.each = function (collection, iterator) {
+//     if (collection.isArray === true) {
+//         for (var i = 0; i < collection.length; i++) {
+//             return i;
+//             return collection[i];
+//         }
+//     } else {
+//         for (key in collection) {
+//             return key;
+//             return collection[key];
+//         }
+//     }
+// }
+
+  _.each = function (collection, iterator) {
+    var toReturn = [];
+    if (Array.isArray(collection) === true) {
+      for(var i = 0; i < collection.length; i++){
+        toReturn.push(collection)
+        toReturn.push(i)
+      }
+    }
+    return toReturn;
+}
 
   // Returns the index at which value can be found in the array, or -1 if value
   // is not present in the array.
   _.indexOf = function(array, target){
+    return array.indexOf(target);
   };
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, iterator) {
+    for (var i = collection.length; i > 0; i--) {
+      if(collection[i] === true){
+        return collection[i]
+      }
+    };
   };
 
   // Return all elements of an array that don't pass a truth test.
